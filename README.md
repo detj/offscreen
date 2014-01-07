@@ -11,7 +11,7 @@ Serve the files from a basic static HTTP server. If you are on OSX, you can use 
 ```
 $ python -m SimpleHTTPServer
 ```
-Open `http://localhost:8000` in your browser
+Open `http://localhost:8000/` in your browser
 
 ### Uses
 1. Can be used for preloading and caching iframe documents, so they load faster
