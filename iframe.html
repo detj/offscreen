@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>IFrame</title>
+</head>
+<body>
+  <script type="text/javascript">
+    ;(function(window) {
+      var message = 'child';
+      window.parent.postMessage(message, 'http://localhost:8000');
+    })(this);
+  </script>
+</body>
+</html>
