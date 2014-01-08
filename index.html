@@ -5,7 +5,7 @@
 </head>
 <body>
   <h1>I am the parent of</h1>
-  <script type="text/javascript">
+  <script>
     ;(function(window) {
 
       window.onmessage = function onmessage(messageEvent) {
@@ -16,8 +16,8 @@
 
       var iframe = document.createElement('iframe');
       iframe.src = 'iframe.html';
-      iframe.style.width = '640';
-      iframe.style.height = '480';
+      iframe.style.width = '0';
+      iframe.style.height = '0';
       iframe.style.border = 'none';
 
       document.body.appendChild(iframe);
