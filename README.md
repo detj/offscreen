@@ -2,7 +2,7 @@
 offscreen processing using invisible child iframes
 
 ### Overview
-Uses iframes of zero width, height to load another document in the background. The parent receives a `MessageEvent` from the child iframe and shows up the received data.
+Uses iframes of zero width, height to load another document in the background. The child iframe calls a function of the parent's. This way two different JS contexts can communicate between each other on the same domain.
 
 ### To run
 
@@ -20,7 +20,7 @@ Open `http://localhost:8000/` in your browser
 ### Browser Compatibility
 * Chrome 4.0+
 * Firefox 3.0+
-* IE 8+
+* IE 7+
 * Opera 9.5+
 * Safari 4.0+
 * iOS Safari 3.2+

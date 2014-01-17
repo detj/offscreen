@@ -8,24 +8,36 @@
   <script>
     ;(function(window) {
 
-      window.onmessage = function onmessage(messageEvent) {
-        if ('http://localhost:8000' === messageEvent.origin) {
-          useMessage(messageEvent.data);
-        }
-      };
-
+      // First, we create an iframe using code. Since, the iframe is going to
+      // be invisible, the width and height is set as 0.
       var iframe = document.createElement('iframe');
       iframe.src = 'iframe.html';
       iframe.style.width = '0';
       iframe.style.height = '0';
       iframe.style.border = 'none';
 
+      // The iframe is not going to load unless you attach it to the DOM
       document.body.appendChild(iframe);
 
-      function useMessage(data) {
+      /**
+       * Arbitrary function which is called by the iframe. Since, the iframe and
+       * the parent document is under the same domain they can access each other
+       * seamlessly.
+       *
+       * @param {String} data
+       */
+      window.useMessage = function(data) {
         var h1 = document.getElementsByTagName('h1')[0];
         h1.innerHTML = h1.innerHTML + ' ' + data;
-      }
+      };
+
+      /**
+       * Remove the child iframe and cleanup
+       */
+      window.closeMe = function() {
+        document.body.removeChild(iframe);
+        iframe = null;
+      };
 
     })(this);
   </script>

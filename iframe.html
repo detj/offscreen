@@ -5,9 +5,13 @@
 </head>
 <body>
   <script>
+    // Wrapped in IIFE in order to prevent global variable leaks
     ;(function(window) {
       var message = 'child';
-      window.parent.postMessage(message, 'http://localhost:8000');
+
+      // window.parent is the parent document's window object
+      window.parent.useMessage(message);
+      window.parent.closeMe();
     })(this);
   </script>
 </body>
